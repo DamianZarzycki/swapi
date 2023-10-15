@@ -1,0 +1,20 @@
+<div class="game-mode-selection-container">
+  <div class="game-mode-selection">
+    <button
+      id="single-player-button"
+      mat-raised-button
+      (click)="singlePlayerClickHandler()"
+    >
+      Single Player
+    </button>
+    <button
+      id="multi-player-button"
+      [disabled]="true"
+      mat-raised-button
+      color="primary"
+      (click)="multiPlayerClickHandler()"
+    >
+      Multiplayer
+    </button>
+  </div>
+</div>

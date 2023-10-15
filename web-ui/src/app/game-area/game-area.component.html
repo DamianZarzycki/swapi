@@ -1,0 +1,82 @@
+<div class="game-characters-view">
+  <div class="character-container">
+    <div class="character-view">
+      <h2>Your character:</h2>
+      <mat-form-field>
+        <mat-select
+          id="play-as-value"
+          [(value)]="playAsValue"
+          (selectionChange)="playAsHandler($event)"
+        >
+          <mat-option value="person">Person</mat-option>
+          <mat-option value="starship">Starship</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div [ngSwitch]="playAsValue">
+        <div>
+          <app-person
+            *ngSwitchCase="'person'"
+            [person]="firstCharacter"
+          ></app-person>
+        </div>
+        <div>
+          <app-starship
+            *ngSwitchCase="'starship'"
+            [starship]="firstCharacter"
+          ></app-starship>
+        </div>
+        <div>
+          <app-person *ngSwitchDefault [person]="firstCharacter"></app-person>
+        </div>
+      </div>
+    </div>
+
+    <div class="fight-button">
+      <button
+        id="fight-button"
+        mat-button
+        mat-raised-button
+        color=""
+        [disabled]="isLoading"
+        (click)="prepareFight()"
+      >
+        Fight again
+      </button>
+    </div>
+
+    <div class="character-view">
+      <h2>AI Character:</h2>
+      <mat-form-field>
+        <mat-select
+          id="play-against-value"
+          [(value)]="playAgainstValue"
+          (selectionChange)="playAgainstHandler($event)"
+        >
+          <mat-option id="play-against-opt-1" value="person">Person</mat-option>
+          <mat-option id="play-against-opt-2" value="starship"
+            >Starship</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <div [ngSwitch]="playAgainstValue">
+        <div>
+          <app-person
+            *ngSwitchCase="'person'"
+            [person]="secondCharacter"
+          ></app-person>
+        </div>
+        <div>
+          <app-starship
+            *ngSwitchCase="'starship'"
+            [starship]="secondCharacter"
+          ></app-starship>
+        </div>
+        <div>
+          <app-person *ngSwitchDefault [person]="secondCharacter"></app-person>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>

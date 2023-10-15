@@ -1,0 +1,22 @@
+<mat-card class="starship">
+  <mat-card-header>
+    <mat-card-title>{{ starship?.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <span>Details:</span>
+    <ul class="starship-card-details">
+      <li>Model: {{ starship?.model }}</li>
+      <li>Manufacturer: {{ starship?.manufacturer }}</li>
+      <li>Cost in Credits: {{ starship?.cost_in_credits }}</li>
+      <li>Length: {{ starship?.length }}</li>
+      <li>Max Atmosphering Speed: {{ starship?.max_atmosphering_speed }}</li>
+      <li>Crew: {{ starship?.crew }}</li>
+      <li>Passengers: {{ starship?.passengers?.length }}</li>
+      <li>Cargo Capacity: {{ starship?.cargo_capacity }}</li>
+      <li>Consumables: {{ starship?.consumables }}</li>
+      <li>Hyperdrive Rating: {{ starship?.hyperdrive_rating }}</li>
+      <li>MGLT: {{ starship?.MGLT }}</li>
+      <li>Starship Class: {{ starship?.starship_class }}</li>
+    </ul>
+  </mat-card-content>
+</mat-card>
